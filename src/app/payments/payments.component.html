@@ -1,0 +1,29 @@
+<h2>Payments:</h2>
+
+<table class="styled-table">
+  <thead>
+  <tr>
+    <th>Identifier</th>
+    <th>Reference</th>
+    <th>Amount</th>
+    <th>Currency</th>
+    <th>Method</th>
+    <th>Status</th>
+    <th>Payment Method</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let payment of payments">
+    <td>{{ payment.id}}</td>
+    <td>{{ payment.reference }}</td>
+    <td>{{ payment.amount }}</td>
+    <td>{{ payment.currency }}</td>
+    <td>{{ payment.method }}</td>
+    <td>{{ payment.status }}</td>
+    <td>{{ payment.paymentMethod }}</td>
+    <td>{{ payment.description }}</td>
+  </tr>
+  </tbody>
+</table>
+
