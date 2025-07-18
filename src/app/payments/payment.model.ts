@@ -1,5 +1,5 @@
 export interface Payment {
-  id:string;
+  id:number;
   reference: string;
   amount: string;
   currency: string;
