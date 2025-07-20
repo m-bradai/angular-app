@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Payment} from "./payment.model";
 import {PaymentsService} from "./payments.service";
+import {MatDialog} from "@angular/material/dialog";
+import {PaymentDetailDialogComponent} from "../payment-detail-dialog/payment-detail-dialog.component";
 
 @Component({
   selector: 'app-payments',
@@ -8,18 +10,27 @@ import {PaymentsService} from "./payments.service";
   styleUrls: ['./payments.component.css']
 })
 export class PaymentsComponent implements OnInit{
+
   payments: Payment[] = [];
 
-  constructor(private paymentsService : PaymentsService) {
-  }
+  displayedColumns: string[] = ['reference', 'amount', 'currency', 'method', 'status'];
+
+  constructor(private paymentsService : PaymentsService, private dialog: MatDialog) {}
+
 
   ngOnInit() {
     this.paymentsService.getPayments().subscribe({
       next: (data)=> this.payments=data,
       error:(err)=> alert(JSON.stringify(err))
-      // TODO : why to export module HttpClientModule to be able to use HttClient ?
     })
+    // TODO : understand how to use RxJS transformations map, filter ,etc..
   }
 
+  openPaymentDialog(payment: Payment) {
+    this.dialog.open(PaymentDetailDialogComponent, {
+      width: '400px',
+      data: payment
+    });
+  }
 
 }

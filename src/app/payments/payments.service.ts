@@ -13,8 +13,7 @@ export class PaymentsService {
   constructor(private http : HttpClient) { }
 
   getPayments():Observable<Payment[]> {
-    const paymentObservable =  this.http.get<Payment[]>(this.apiUrl);
-    return paymentObservable;
+     return this.http.get<Payment[]>(this.apiUrl);
   }
 
 }

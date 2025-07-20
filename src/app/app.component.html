@@ -1,8 +1,14 @@
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/payments">
+    <mat-icon>payment</mat-icon>
+    Payments
+  </button>
+  <button mat-button routerLink="/partenaires">
+    <mat-icon>group</mat-icon>
+    Partenaires
+  </button>
+</mat-toolbar>
 
-<nav>
-  <button routerLink="/payments">Payments</button>
-  <button routerLink="/partenaires">Partenaires</button>
-</nav>
+<!-- Routed components will load here -->
 
-<!-- This is where Angular will inject the routed component -->
 <router-outlet></router-outlet>
