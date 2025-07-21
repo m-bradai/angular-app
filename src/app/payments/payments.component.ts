@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Payment} from "./payment.model";
 import {PaymentsService} from "./payments.service";
 import {MatDialog} from "@angular/material/dialog";
-import {PaymentDetailDialogComponent} from "../payment-detail-dialog/payment-detail-dialog.component";
+import {PaymentDetailDialogComponent} from "./payment-detail-dialog/payment-detail-dialog.component";
 
 @Component({
   selector: 'app-payments',

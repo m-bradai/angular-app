@@ -4,8 +4,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-payment-detail-dialog',
   template: `
-<h2 mat-dialog-title>Payment Details</h2>
-<mat-dialog-content>
+    <h2 mat-dialog-title>Payment Details</h2>
+  <mat-dialog-content>
   <p><strong>Id:</strong> {{data.id}}</p>
   <p><strong>Reference:</strong> {{data.reference}}</p>
   <p><strong>Amount:</strong> {{data.amount}} {{data.currency}}</p>

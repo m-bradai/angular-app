@@ -13,14 +13,16 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDialogModule} from "@angular/material/dialog";
-import { PaymentDetailDialogComponent } from './payment-detail-dialog/payment-detail-dialog.component';
+import { PaymentDetailDialogComponent } from './payments/payment-detail-dialog/payment-detail-dialog.component';
+import { PartenaireDetailsDialogComponent } from './partenaires/partenaire-details-dialog/partenaire-details-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PaymentsComponent,
     PartenairesComponent,
-    PaymentDetailDialogComponent
+    PaymentDetailDialogComponent,
+    PartenaireDetailsDialogComponent
   ],
   imports: [
     BrowserModule,
