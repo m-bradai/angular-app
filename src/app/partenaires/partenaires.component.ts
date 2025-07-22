@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Partenaire} from "./partenaire.model";
+import {Partenaire} from "./interface/partenaire.model";
 import {PartenairesService} from "./partenaires.service";
 import {MatDialog} from "@angular/material/dialog";
 import {PartenaireDetailsDialogComponent} from "./partenaire-details-dialog/partenaire-details-dialog.component";
+import {PartenaireAddDialogComponent} from "./partenaire-add-dialog/partenaire-add-dialog.component";
 
 @Component({
   selector: 'app-partenaires',
@@ -28,9 +29,24 @@ export class PartenairesComponent implements OnInit {
   }
 
   openDetailsDialog(partenaire: Partenaire){
-    this.dialog.open(PartenaireDetailsDialogComponent,{width:'100%', data:partenaire})
+    this.dialog.open(PartenaireDetailsDialogComponent,{width:'400px', data:partenaire})
   }
 
+  /** Opens the Add Partner dialog */
+  openAddPartnerDialog(): void {
+    const dialogRef = this.dialog.open(PartenaireAddDialogComponent, {
+      width: '1000px'
+    });
 
+    dialogRef.afterClosed().subscribe((newPartner: Partenaire | undefined) => {
+      if (newPartner) {
+        // Add the new partner to the table data
+        this.partenaires = [...this.partenaires, newPartner];
 
-}
+        // Optionally, send it to your backend API here
+        console.log('New partner added:', newPartner);
+      }
+    });
+  }
+
+  }

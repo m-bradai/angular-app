@@ -1,11 +1,11 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-import {Partenaire} from "../partenaire.model";
+import {Partenaire} from "../interface/partenaire.model";
 
 @Component({
   selector: 'app-partenaire-details-dialog',
   template: `
-    <h2 mat-dialog-title>Payment Details</h2>
+    <h2 mat-dialog-title>Partenaire Details</h2>
   <mat-dialog-content>
     <p><strong>Id:</strong> {{data.id}}</p>
     <p><strong>Alias:</strong> {{data.alias}}</p>

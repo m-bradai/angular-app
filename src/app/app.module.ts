@@ -15,6 +15,12 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatDialogModule} from "@angular/material/dialog";
 import { PaymentDetailDialogComponent } from './payments/payment-detail-dialog/payment-detail-dialog.component';
 import { PartenaireDetailsDialogComponent } from './partenaires/partenaire-details-dialog/partenaire-details-dialog.component';
+import { PartenaireAddDialogComponent } from './partenaires/partenaire-add-dialog/partenaire-add-dialog.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatInputModule} from "@angular/material/input";
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,7 +28,8 @@ import { PartenaireDetailsDialogComponent } from './partenaires/partenaire-detai
     PaymentsComponent,
     PartenairesComponent,
     PaymentDetailDialogComponent,
-    PartenaireDetailsDialogComponent
+    PartenaireDetailsDialogComponent,
+    PartenaireAddDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +41,12 @@ import { PartenaireDetailsDialogComponent } from './partenaires/partenaire-detai
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
