@@ -40,10 +40,7 @@ export class PartenairesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((newPartner: Partenaire | undefined) => {
       if (newPartner) {
-        // Add the new partner to the table data
         this.partenaires = [...this.partenaires, newPartner];
-
-        // Optionally, send it to your backend API here
         console.log('New partner added:', newPartner);
       }
     });
