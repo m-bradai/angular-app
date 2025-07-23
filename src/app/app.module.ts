@@ -21,6 +21,8 @@ import {MatInputModule} from "@angular/material/input";
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import {ReactiveFormsModule} from "@angular/forms";
+import {ConfirmationDialogComponent} from "./confirmation-dialog-component";
+import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     PartenairesComponent,
     PaymentDetailDialogComponent,
     PartenaireDetailsDialogComponent,
-    PartenaireAddDialogComponent
+    PartenaireAddDialogComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatInputModule,
     MatOptionModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

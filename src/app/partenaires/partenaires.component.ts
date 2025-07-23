@@ -20,6 +20,7 @@ export class PartenairesComponent implements OnInit {
 
   partenaires: Partenaire[] = [];
 
+
   ngOnInit(): void {
     this.partenairesService.getPartenaires().subscribe({
       next:(data)=>this.partenaires = data,
@@ -35,12 +36,12 @@ export class PartenairesComponent implements OnInit {
   /** Opens the Add Partner dialog */
   openAddPartnerDialog(): void {
     const dialogRef = this.dialog.open(PartenaireAddDialogComponent, {
-      width: '1000px'
+      width: '40%'
     });
 
-    dialogRef.afterClosed().subscribe((newPartner: Partenaire | undefined) => {
+    dialogRef.afterClosed().subscribe((newPartner: Partenaire) => {
       if (newPartner) {
-        this.partenaires = [...this.partenaires, newPartner];
+        this.partenaires = [...this.partenaires, newPartner]; // TODO : does the update of this.partenaires updates the template ?
         console.log('New partner added:', newPartner);
       }
     });

@@ -1,5 +1,5 @@
 export interface Partenaire {
-  id: number | null,
+  id: number | null
   alias: string,
   type: string,
   direction: string,

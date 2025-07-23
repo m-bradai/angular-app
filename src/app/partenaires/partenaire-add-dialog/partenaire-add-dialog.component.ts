@@ -1,9 +1,10 @@
-import {Component, Inject} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {MatDialogRef} from "@angular/material/dialog";
 import {PartenairesService} from "../partenaires.service";
 import {Partenaire} from "../interface/partenaire.model";
-import {defaultLogger} from "@angular/cdk/schematics/update-tool/logger";
+import {HttpStatusCode} from "@angular/common/http";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-partenaire-add-dialog',
@@ -60,12 +61,11 @@ export class PartenaireAddDialogComponent {
 
   partenaireForm: FormGroup;
 
-  // TODO : what is the rule to declare filelds in the class? ( not initialized filed)
-
   constructor(
     private partenaireService: PartenairesService,
     private fb: FormBuilder,
-    private dialogRef: MatDialogRef<PartenaireAddDialogComponent>,// TODO : why dialogRef is a part of the constructor ?
+    private dialogRef: MatDialogRef<PartenaireAddDialogComponent>,
+    private snackBar: MatSnackBar
   ) {
     this.partenaireForm = this.fb.group({
       alias: ['', Validators.required],
@@ -94,14 +94,34 @@ export class PartenaireAddDialogComponent {
       this.partenaireService.addPartenaire(partenaire).subscribe(
         {
           next: (response)=> {
-            // TODO : is it necessary to check response status?
-            // TODO : when success (or not 200) display success message for the user
+            if(response.status == HttpStatusCode.Created){
+              // this.confirmationDialog.open(ConfirmationDialogComponent,{width:'400px',data:{message:'Partenaire added successfully.'}},)
+              this.snackBar.open('Partenaire added successfully!', 'Close', {
+                duration: 3000,
+                horizontalPosition: 'center',
+                verticalPosition: 'top',
+                panelClass: ['snackbar-success']
+              });
+            }else{
+              this.snackBar.open('Failed to add partenaire. Please try again.', 'Close', {
+                duration: 4000,
+                horizontalPosition: 'center',
+                verticalPosition: 'top',
+                panelClass: ['snackbar-error']
+              });
+            }
             this.dialogRef.close(response.body);
           },
           error:(error)=>{
-            // TODO : display error message for the user.
+            this.snackBar.open('Failed to add partenaire. Please try again.', 'Close', {
+              duration: 5000,
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+              panelClass: ['snackbar-error'],
+            });
             console.log('error: ' + error)
             this.dialogRef.close()
+
           }
         }
       );
