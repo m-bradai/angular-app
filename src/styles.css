@@ -3,14 +3,16 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.snackbar-success {
-  background-color: #4CAF50; /* Material green */
-  color: #fff;              /* White text */
+/* Success Snackbar */
+.success-snackbar {
+  --mdc-snackbar-container-color: rgba(96, 110, 198, 0.93);
+  --mdc-snackbar-supporting-text-color: #fff;
   font-weight: bold;
 }
 
-.snackbar-error {
-  background-color: #F44336; /* Material red */
-  color: #fff;
+/* Error Snackbar */
+.error-snackbar {
+  --mdc-snackbar-container-color: #f12424;
+  --mdc-snackbar-supporting-text-color: #fff;
   font-weight: bold;
 }

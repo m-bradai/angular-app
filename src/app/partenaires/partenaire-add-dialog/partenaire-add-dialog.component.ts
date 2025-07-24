@@ -100,14 +100,14 @@ export class PartenaireAddDialogComponent {
                 duration: 3000,
                 horizontalPosition: 'center',
                 verticalPosition: 'top',
-                panelClass: ['snackbar-success']
+                panelClass: ['success-snackbar']
               });
             }else{
               this.snackBar.open('Failed to add partenaire. Please try again.', 'Close', {
                 duration: 4000,
                 horizontalPosition: 'center',
                 verticalPosition: 'top',
-                panelClass: ['snackbar-error']
+                panelClass: ['error-snackbar']
               });
             }
             this.dialogRef.close(response.body);
@@ -117,7 +117,7 @@ export class PartenaireAddDialogComponent {
               duration: 5000,
               horizontalPosition: 'center',
               verticalPosition: 'top',
-              panelClass: ['snackbar-error'],
+              panelClass: ['error-snackbar'],
             });
             console.log('error: ' + error)
             this.dialogRef.close()
