@@ -33,17 +33,26 @@
       <td mat-cell *matCellDef="let partenaire"> {{partenaire.application}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let partenaire">
+        <button mat-icon-button color="warn" (click)="onDelete(partenaire); $event.stopPropagation()">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
     <!-- Header and Row Declarations -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-        (click)="openDetailsDialog(row)"
+    <tr mat-row *matRowDef="let partenaire; columns: displayedColumns;"
+        (click)="openDetailsDialog(partenaire)"
         style="cursor: pointer;"></tr>
   </table>
 
   <!-- Button Section -->
   <div style="margin-top: 16px; text-align: center;">
     <button mat-raised-button color="primary" (click)="openAddPartnerDialog()">
-      Ajouter un Partenaire
+      add Partenaire
     </button>
   </div>
 </mat-card>

@@ -95,7 +95,6 @@ export class PartenaireAddDialogComponent {
         {
           next: (response)=> {
             if(response.status == HttpStatusCode.Created){
-              // this.confirmationDialog.open(ConfirmationDialogComponent,{width:'400px',data:{message:'Partenaire added successfully.'}},)
               this.snackBar.open('Partenaire added successfully!', 'Close', {
                 duration: 3000,
                 horizontalPosition: 'center',
@@ -127,5 +126,7 @@ export class PartenaireAddDialogComponent {
       );
 
   }
+
+
 
 }
