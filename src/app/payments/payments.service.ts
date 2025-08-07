@@ -8,7 +8,7 @@ import {Payment} from "./payment.model";
 })
 export class PaymentsService {
 
-  private apiUrl = 'http://localhost:8080/api/v1/payments';
+  private apiUrl = 'http://localhost:8087/api/v1/payments';
 
   constructor(private http : HttpClient) { }
 

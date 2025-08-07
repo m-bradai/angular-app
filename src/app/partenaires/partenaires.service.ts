@@ -10,7 +10,7 @@ export class PartenairesService {
 
   constructor(private httpClient: HttpClient){}
 
-  private baseUrl = 'http://localhost:8080/api/v1';
+  private baseUrl = 'http://localhost:8087/api/v1';
 
   private getPartenairesPath = '/partenaires';
 
